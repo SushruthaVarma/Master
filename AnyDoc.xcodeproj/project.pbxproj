@@ -14,6 +14,7 @@
 		7647C5EB24B4EB6A00691856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7647C5EA24B4EB6A00691856 /* Assets.xcassets */; };
 		7647C5EE24B4EB6A00691856 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7647C5EC24B4EB6A00691856 /* LaunchScreen.storyboard */; };
 		7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5F524B4EDCC00691856 /* ImagePicker.swift */; };
+		7688F6FC24B528730092E867 /* VisionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688F6FB24B528730092E867 /* VisionReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7647C5ED24B4EB6A00691856 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7647C5EF24B4EB6A00691856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7647C5F524B4EDCC00691856 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7688F6FB24B528730092E867 /* VisionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				7647C5E324B4EB6500691856 /* SceneDelegate.swift */,
 				7647C5F524B4EDCC00691856 /* ImagePicker.swift */,
 				7647C5E524B4EB6500691856 /* ViewController.swift */,
+				7688F6FB24B528730092E867 /* VisionReader.swift */,
 				7647C5E724B4EB6500691856 /* Main.storyboard */,
 				7647C5EA24B4EB6A00691856 /* Assets.xcassets */,
 				7647C5EC24B4EB6A00691856 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7647C5E624B4EB6500691856 /* ViewController.swift in Sources */,
+				7688F6FC24B528730092E867 /* VisionReader.swift in Sources */,
 				7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */,
 				7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */,
 				7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */,
@@ -289,12 +293,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ERCG8ZPCT3;
 				INFOPLIST_FILE = AnyDoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Fathi.AnyDoc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fathi.magic;
 				PRODUCT_NAME = ADoc.AI;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -306,12 +311,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ERCG8ZPCT3;
 				INFOPLIST_FILE = AnyDoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Fathi.AnyDoc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fathi.magic;
 				PRODUCT_NAME = ADoc.AI;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

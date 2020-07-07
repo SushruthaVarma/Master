@@ -41,8 +41,7 @@
                                 </constraints>
                                 <state key="normal" title="Apply OCR"/>
                                 <connections>
-                                    <action selector="applyOCR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iND-Ck-uIb"/>
-                                    <action selector="showImagePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9G8-UC-y7H"/>
+                                    <action selector="applyOCR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3KC-2G-UQz"/>
                                 </connections>
                             </button>
                         </subviews>
