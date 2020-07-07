@@ -13,10 +13,11 @@
 		7647C5E924B4EB6500691856 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7647C5E724B4EB6500691856 /* Main.storyboard */; };
 		7647C5EB24B4EB6A00691856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7647C5EA24B4EB6A00691856 /* Assets.xcassets */; };
 		7647C5EE24B4EB6A00691856 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7647C5EC24B4EB6A00691856 /* LaunchScreen.storyboard */; };
+		7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5F524B4EDCC00691856 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7647C5DE24B4EB6500691856 /* AnyDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7647C5DE24B4EB6500691856 /* ADoc.AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADoc.AI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7647C5E124B4EB6500691856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7647C5E324B4EB6500691856 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7647C5E524B4EB6500691856 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +25,7 @@
 		7647C5EA24B4EB6A00691856 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7647C5ED24B4EB6A00691856 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7647C5EF24B4EB6A00691856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7647C5F524B4EDCC00691856 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,7 @@
 		7647C5DF24B4EB6500691856 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7647C5DE24B4EB6500691856 /* AnyDoc.app */,
+				7647C5DE24B4EB6500691856 /* ADoc.AI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +60,7 @@
 			children = (
 				7647C5E124B4EB6500691856 /* AppDelegate.swift */,
 				7647C5E324B4EB6500691856 /* SceneDelegate.swift */,
+				7647C5F524B4EDCC00691856 /* ImagePicker.swift */,
 				7647C5E524B4EB6500691856 /* ViewController.swift */,
 				7647C5E724B4EB6500691856 /* Main.storyboard */,
 				7647C5EA24B4EB6A00691856 /* Assets.xcassets */,
@@ -84,7 +87,7 @@
 			);
 			name = AnyDoc;
 			productName = AnyDoc;
-			productReference = 7647C5DE24B4EB6500691856 /* AnyDoc.app */;
+			productReference = 7647C5DE24B4EB6500691856 /* ADoc.AI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7647C5E624B4EB6500691856 /* ViewController.swift in Sources */,
+				7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */,
 				7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */,
 				7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */,
 			);
@@ -291,9 +295,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Fathi.AnyDoc;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADoc.AI;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,9 +312,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Fathi.AnyDoc;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADoc.AI;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
