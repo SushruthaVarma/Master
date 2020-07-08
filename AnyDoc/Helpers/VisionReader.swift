@@ -11,7 +11,8 @@ import Vision
 
 protocol VisionReaderDelegate: AnyObject {
     
-    func didCompleteRecognition(string: String)
+    func didCompleteRecognition(text: String)
+    func didUpdateProgress(percent: Double)
     func didFail(error: Error)
     
 }
@@ -34,32 +35,40 @@ class VisionReader {
         // Create image request with CGImage
         let imageRequest = VNImageRequestHandler(cgImage: cgImage, options: [:])
         
-        // Create text reuqest
+        // Create text reuqest with the completion handler
         let textRequest = VNRecognizeTextRequest(completionHandler: completionHandler)
         
-        // Select recognition level
+        // Specify the progress handler
+        textRequest.progressHandler = progressHandler
+        
+        // Specify recognition level
         textRequest.recognitionLevel = .accurate
         
         // Specify language correction
         textRequest.usesLanguageCorrection = true
         
-        do {
-            // Perform the text recogintion request
-            try imageRequest.perform([textRequest])
-            
-        } catch {
-            print("Faild to perform the text recognition request. \(error)")
+        // Perform the text recogintion request on a background thread
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                try imageRequest.perform([textRequest])
+                
+            } catch {
+                print("Faild to perform the text recognition request. \(error)")
+            }
         }
         
     }
     
     // MARK: Completion Handler
+    
     // Text recognition completion handler
-    lazy var completionHandler: (VNRequest, Error?) -> Void = { [weak delegate] request, error in
+    lazy var completionHandler: VNRequestCompletionHandler = { [weak delegate] request, error in
                 
         // Inform the delegate with the error if exists
         if let error = error {
-            delegate?.didFail(error: error)
+            DispatchQueue.main.async {
+                delegate?.didFail(error: error)
+            }
         }
         
         // The results are in the request
@@ -82,12 +91,21 @@ class VisionReader {
             
             // append to the recognized text
             recognizedText += candidate.string
-            recognizedText += "\n"
+            recognizedText += "\n" 
         }
         
-        // Inform the delegate with the recoginzed text
-        delegate?.didCompleteRecognition(string: recognizedText)
+        DispatchQueue.main.async {
+            // Inform the delegate with the recoginzed text
+            delegate?.didCompleteRecognition(text: recognizedText)
+        }
         
+    }
+    
+    // MARK: Progress Handler
+    lazy var progressHandler: VNRequestProgressHandler = { [weak delegate] _, percent, _ in
+        DispatchQueue.main.async {
+            delegate?.didUpdateProgress(percent: percent)
+        }
     }
     
     

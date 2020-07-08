@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  AnyDoc
 //
 //  Created by Ahmed Fathi on 7/7/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     
@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func applyOCR(_ sender: UIButton) {
-        // TODO: Apply OCR
         guard let image = imageView.image else {
             print("No image selected")
             return
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ImagePickerDelegate {
+extension HomeViewController: ImagePickerDelegate {
 
     func didSelect(image: UIImage?) {
         self.imageView.backgroundColor = .clear
@@ -46,9 +45,9 @@ extension ViewController: ImagePickerDelegate {
 }
 
 
-extension ViewController: VisionReaderDelegate {
+extension HomeViewController: VisionReaderDelegate {
     
-    func didCompleteRecognition(string: String) {
+    func didCompleteRecognition(text: String) {
         print(string)
     }
     
