@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		764110C124B8E43D000ADAA6 /* ScannedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764110C024B8E43D000ADAA6 /* ScannedImage.swift */; };
 		7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E124B4EB6500691856 /* AppDelegate.swift */; };
 		7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E324B4EB6500691856 /* SceneDelegate.swift */; };
 		7647C5E624B4EB6500691856 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E524B4EB6500691856 /* HomeViewController.swift */; };
@@ -27,9 +28,11 @@
 		76C3294924B85DE100A98FF5 /* ScanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3294724B85DE100A98FF5 /* ScanCollectionViewCell.swift */; };
 		76C3294A24B85DE100A98FF5 /* ScanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76C3294824B85DE100A98FF5 /* ScanCollectionViewCell.xib */; };
 		76C3294E24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3294D24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift */; };
+		76DFFA6924B8DF36009E3630 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DFFA6824B8DF36009E3630 /* PreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		764110C024B8E43D000ADAA6 /* ScannedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedImage.swift; sourceTree = "<group>"; };
 		7647C5DE24B4EB6500691856 /* ADoc.AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADoc.AI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7647C5E124B4EB6500691856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7647C5E324B4EB6500691856 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		76C3294724B85DE100A98FF5 /* ScanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCollectionViewCell.swift; sourceTree = "<group>"; };
 		76C3294824B85DE100A98FF5 /* ScanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanCollectionViewCell.xib; sourceTree = "<group>"; };
 		76C3294D24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
+		76DFFA6824B8DF36009E3630 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,14 @@
 			path = OCRResult;
 			sourceTree = "<group>";
 		};
+		764110BF24B8E42D000ADAA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				764110C024B8E43D000ADAA6 /* ScannedImage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7647C5D524B4EB6500691856 = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +117,9 @@
 			children = (
 				766D471324B5BA3E00CC87CA /* App */,
 				766D471424B5BA4500CC87CA /* Modules */,
-				766D471624B5BA6000CC87CA /* Helpers */,
+				764110BF24B8E42D000ADAA6 /* Models */,
 				766D471824B5BA7A00CC87CA /* Resources */,
+				76DFFA6624B8DF1E009E3630 /* Reuseables */,
 				766D471524B5BA4A00CC87CA /* SupportingFiles */,
 			);
 			path = AnyDoc;
@@ -144,7 +157,6 @@
 		766D471624B5BA6000CC87CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				76C3294C24B85ED700A98FF5 /* Extensions */,
 				7647C5F524B4EDCC00691856 /* ImagePicker.swift */,
 				7688F6FB24B528730092E867 /* VisionReader.swift */,
 				766D471B24B5C86400CC87CA /* ProgressView.swift */,
@@ -195,6 +207,24 @@
 				76C3294D24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		76DFFA6624B8DF1E009E3630 /* Reuseables */ = {
+			isa = PBXGroup;
+			children = (
+				76DFFA6724B8DF2C009E3630 /* Components */,
+				766D471624B5BA6000CC87CA /* Helpers */,
+				76C3294C24B85ED700A98FF5 /* Extensions */,
+			);
+			path = Reuseables;
+			sourceTree = "<group>";
+		};
+		76DFFA6724B8DF2C009E3630 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				76DFFA6824B8DF36009E3630 /* PreviewView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +309,10 @@
 				7688F6FC24B528730092E867 /* VisionReader.swift in Sources */,
 				76BF77BD24B87FB4002D1426 /* CaptureViewController.swift in Sources */,
 				76BF77C324B88E50002D1426 /* ImageProcessor.swift in Sources */,
+				764110C124B8E43D000ADAA6 /* ScannedImage.swift in Sources */,
 				7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */,
 				7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */,
+				76DFFA6924B8DF36009E3630 /* PreviewView.swift in Sources */,
 				766D471C24B5C86400CC87CA /* ProgressView.swift in Sources */,
 				7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */,
 				766D471A24B5BC8E00CC87CA /* OCRResultViewController.swift in Sources */,

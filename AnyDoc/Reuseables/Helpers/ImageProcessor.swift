@@ -17,6 +17,7 @@ class ImageProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         didFinishProcessingPhoto photo: AVCapturePhoto,
         error: Error?)
     {
+        // Currently no processing required. Just return the image data as is.
         guard
             let data = photo.fileDataRepresentation()
             else { return }

@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LG7-MR-kWH" customClass="PreviewView" customModule="ADoc_AI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="762"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC7-Vq-nEi">
                                 <rect key="frame" x="0.0" y="762" width="414" height="100"/>
                                 <subviews>
@@ -37,6 +41,9 @@
                                             <constraint firstAttribute="height" constant="60" id="alw-p4-erV"/>
                                             <constraint firstAttribute="width" secondItem="eCN-sV-7fa" secondAttribute="height" multiplier="1:1" id="un7-ji-qpb"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="didTapCapture:" destination="qpZ-zV-hMx" eventType="touchUpInside" id="F7f-Pc-R9l"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHF-oO-qAo">
                                         <rect key="frame" x="332" y="34" width="32" height="32"/>
@@ -50,7 +57,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="LHF-oO-qAo" secondAttribute="trailing" constant="50" id="3DY-4O-lh0"/>
                                     <constraint firstItem="eCN-sV-7fa" firstAttribute="centerX" secondItem="SC7-Vq-nEi" secondAttribute="centerX" id="4uY-KC-ljt"/>
@@ -63,24 +70,29 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCw-Db-uPl">
                                 <rect key="frame" x="0.0" y="862" width="414" height="34"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PDG-aq-a6s" firstAttribute="trailing" secondItem="SC7-Vq-nEi" secondAttribute="trailing" id="8vJ-Cr-Fpy"/>
+                            <constraint firstItem="LG7-MR-kWH" firstAttribute="top" secondItem="VIN-35-wmN" secondAttribute="top" id="G3I-Pl-rg8"/>
                             <constraint firstAttribute="bottom" secondItem="lCw-Db-uPl" secondAttribute="bottom" id="KVN-PU-PPj"/>
                             <constraint firstItem="lCw-Db-uPl" firstAttribute="leading" secondItem="PDG-aq-a6s" secondAttribute="leading" id="Nsj-kc-NE3"/>
+                            <constraint firstItem="LG7-MR-kWH" firstAttribute="leading" secondItem="PDG-aq-a6s" secondAttribute="leading" id="O5G-Wa-n8U"/>
+                            <constraint firstItem="PDG-aq-a6s" firstAttribute="trailing" secondItem="LG7-MR-kWH" secondAttribute="trailing" id="Rs9-Cs-bOJ"/>
                             <constraint firstItem="SC7-Vq-nEi" firstAttribute="leading" secondItem="PDG-aq-a6s" secondAttribute="leading" id="kZ5-7x-72L"/>
                             <constraint firstItem="lCw-Db-uPl" firstAttribute="top" secondItem="SC7-Vq-nEi" secondAttribute="bottom" id="lux-Ts-N8M"/>
                             <constraint firstItem="PDG-aq-a6s" firstAttribute="bottom" secondItem="SC7-Vq-nEi" secondAttribute="bottom" id="nSp-w4-0c4"/>
                             <constraint firstItem="PDG-aq-a6s" firstAttribute="trailing" secondItem="lCw-Db-uPl" secondAttribute="trailing" id="qh3-fX-xPd"/>
+                            <constraint firstAttribute="top" secondItem="LG7-MR-kWH" secondAttribute="bottom" constant="-762" id="rDq-sT-DGV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PDG-aq-a6s"/>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="oW6-GE-vym" id="gQX-q7-qMp"/>
                         <outlet property="gallaryButton" destination="LHF-oO-qAo" id="5zK-tk-B3Y"/>
+                        <outlet property="previewView" destination="LG7-MR-kWH" id="dFJ-OV-RHn"/>
                         <outlet property="recordButton" destination="eCN-sV-7fa" id="w9Y-z4-fTW"/>
                         <segue destination="3jg-hu-FuX" kind="presentation" identifier="OCRSegue" id="xJZ-HO-y7J"/>
                     </connections>

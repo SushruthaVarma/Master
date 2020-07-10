@@ -48,13 +48,13 @@ class VisionReader {
         // Specify language correction
         textRequest.usesLanguageCorrection = true
         
+        DispatchQueue.main.async {
+            self.delegate?.willStartRecognition()
+        }
+        
         // Perform the text recogintion request on a background thread
         DispatchQueue.global(qos: .userInteractive).async {
             do {
-                DispatchQueue.main.async {
-                    self.delegate?.willStartRecognition()
-                }
-                
                 try imageRequest.perform([textRequest])
                 
             } catch {
@@ -99,7 +99,7 @@ class VisionReader {
             recognizedText += "\n" 
         }
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             // Inform the delegate with the recoginzed text
             delegate?.didCompleteRecognition(text: recognizedText)
         }

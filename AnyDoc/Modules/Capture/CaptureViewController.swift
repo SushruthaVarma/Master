@@ -12,6 +12,7 @@ class CaptureViewController: UIViewController {
     
     // MARK: IBOutlets
 
+    @IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var gallaryButton: UIButton!
@@ -24,9 +25,12 @@ class CaptureViewController: UIViewController {
     
     // MARK: Dependancies
 
-    var imagePicker: ImagePicker!
+    lazy var imagePicker: ImagePicker = {
+        let imagePicker = ImagePicker(presentationController: self, delegate: self)
+        return imagePicker
+    }()
     
-    lazy var captureSessionManager: CaptureManager = {
+    lazy var captureManager: CaptureManager = {
         let manager = PhotoCaptureManager()
         manager.didProcessImage = didProcessImage
         return manager
@@ -39,12 +43,25 @@ class CaptureViewController: UIViewController {
         
         recordButton.layer.cornerRadius = recordButton.frame.height / 2
         recordButton.clipsToBounds = true
-        
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        previewView.videoPreviewLayer.session = captureManager.session
+        previewView.videoPreviewLayer.videoGravity = .resizeAspectFill
+        captureManager.startSession()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        captureManager.stopSession()
     }
     
     // MARK: Actions
+    
+    @IBAction func didTapCapture(_ sender: UIButton) {
+        captureManager.capture()
+    }
 
     @IBAction func didTapPhotoGallary(_ sender: UIButton) {
         imagePicker.present(from: sender)

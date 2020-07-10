@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PtY-8i-cYC" firstAttribute="leading" secondItem="PLd-AA-lLd" secondAttribute="leading" id="Fox-Ec-ifR"/>
                             <constraint firstAttribute="bottom" secondItem="PtY-8i-cYC" secondAttribute="bottom" id="ZMb-mT-sVp"/>

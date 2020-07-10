@@ -9,15 +9,15 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     // MARK: IBOutlets
     
     @IBOutlet var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.register(ScanCollectionViewCell.self)
             collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            collectionView.register(ScanCollectionViewCell.self)
         }
     }
     @IBOutlet weak var addButton: UIButton!
@@ -29,6 +29,15 @@ class HomeViewController: UIViewController {
         static let collectionLineSpacing: CGFloat = 8
         static let collectionNumberOfColumns: CGFloat = 3
     }
+    
+    // MARK: Properties
+    
+    var imagesScans = [ImageScan]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
 
     // MARK: View functions
     
@@ -37,9 +46,27 @@ class HomeViewController: UIViewController {
         
         addButton.layer.cornerRadius = addButton.frame.height / 2
         addButton.clipsToBounds = true
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didAddNewImageHandler),
+            name: .didAddNewImageScan,
+            object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: Helpers
+    
+    @objc private func didAddNewImageHandler(notification: Notification) {
+        guard let imageScan = notification.object as? ImageScan else { return }
+        imagesScans.append(imageScan)
     }
     
     // MARK: Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultVC = segue.destination as? OCRResultViewController {
             resultVC.text = sender as? String
@@ -58,14 +85,14 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        11
+        imagesScans.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ScanCollectionViewCell.reuseId, for: indexPath)
             as? ScanCollectionViewCell else { fatalError() }
-        
+        cell.scanImageView.image = imagesScans[indexPath.row].image
         return cell
     }
 }
@@ -88,4 +115,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         Constants.collectionInteritemSpacing
     }
     
+}
+
+
+extension Notification.Name {
+    static let didAddNewImageScan = Notification.Name(rawValue: "didAddNewImageScan")
 }
