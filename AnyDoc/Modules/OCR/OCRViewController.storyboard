@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tiN-5w-Ko6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="10o-m2-7sC">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="tiN-5w-Ko6" customClass="OCRViewController" customModule="ADoc_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DWs-hB-nqO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PtY-8i-cYC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PtY-8i-cYC" firstAttribute="leading" secondItem="PLd-AA-lLd" secondAttribute="leading" id="Fox-Ec-ifR"/>
+                            <constraint firstAttribute="bottom" secondItem="PtY-8i-cYC" secondAttribute="bottom" id="ZMb-mT-sVp"/>
+                            <constraint firstItem="PtY-8i-cYC" firstAttribute="top" secondItem="PLd-AA-lLd" secondAttribute="top" id="i5H-5K-Eye"/>
+                            <constraint firstItem="PLd-AA-lLd" firstAttribute="trailing" secondItem="PtY-8i-cYC" secondAttribute="trailing" id="jIh-ca-SE4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PLd-AA-lLd"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="PtY-8i-cYC" id="yaC-Jw-MwB"/>
+                        <segue destination="yD6-fP-Io1" kind="show" identifier="OCRResultsSegue" id="cNW-sD-xOy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2U-Ly-0Yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="121"/>
+        </scene>
+        <!--OCRResultViewController-->
+        <scene sceneID="oH7-x2-AGp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OCRResultViewController" id="yD6-fP-Io1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="E7Y-k0-znl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFt-9O-E0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="121"/>
+        </scene>
+    </scenes>
+</document>

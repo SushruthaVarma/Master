@@ -11,6 +11,7 @@ import Vision
 
 protocol VisionReaderDelegate: AnyObject {
     
+    func willStartRecognition()
     func didCompleteRecognition(text: String)
     func didUpdateProgress(percent: Double)
     func didFail(error: Error)
@@ -50,6 +51,10 @@ class VisionReader {
         // Perform the text recogintion request on a background thread
         DispatchQueue.global(qos: .userInteractive).async {
             do {
+                DispatchQueue.main.async {
+                    self.delegate?.willStartRecognition()
+                }
+                
                 try imageRequest.perform([textRequest])
                 
             } catch {

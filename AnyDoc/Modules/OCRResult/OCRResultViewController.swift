@@ -1,5 +1,5 @@
 //
-//  ResultViewController.swift
+//  OCRResultViewController.swift
 //  AnyDoc
 //
 //  Created by Ahmed Fathi on 7/8/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class OCRResultViewController: UIViewController {
     
     // MARK: IBOutlets
     
@@ -22,11 +22,18 @@ class ResultViewController: UIViewController {
     // MARK: Dependancies
     
     var text: String?
+    var onDismissal: (() -> Void)?
     
     // MARK: View functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textView.text = text
+    }
+    
+    @IBAction func didTapDone(sender: Any) {
+        dismiss(animated: true) {
+            self.onDismissal?()
+        }
     }
 }
