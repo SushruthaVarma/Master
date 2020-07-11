@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QxX-dH-Chv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="I6X-k6-19G">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QxX-dH-Chv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qy1-nR-eNM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Beq-w9-jJl" kind="relationship" relationship="rootViewController" id="sVw-6m-Gur"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PB3-9K-QVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114.49275362318842" y="-3.3482142857142856"/>
+        </scene>
+        <!--Documents-->
+        <scene sceneID="o2e-CW-2wo">
+            <objects>
+                <viewController id="Beq-w9-jJl" customClass="DocumentsViewController" customModule="ADoc_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fxr-j0-t3f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w0T-xH-je9">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="w0T-xH-je9" firstAttribute="top" secondItem="Y7C-6Z-FTF" secondAttribute="top" id="V3M-Id-kEI"/>
+                            <constraint firstItem="Y7C-6Z-FTF" firstAttribute="trailing" secondItem="w0T-xH-je9" secondAttribute="trailing" id="gVC-XY-0Pc"/>
+                            <constraint firstAttribute="bottom" secondItem="w0T-xH-je9" secondAttribute="bottom" id="pKn-kE-soX"/>
+                            <constraint firstItem="w0T-xH-je9" firstAttribute="leading" secondItem="Y7C-6Z-FTF" secondAttribute="leading" id="whK-oI-GLj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y7C-6Z-FTF"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Documents" id="KNX-ij-olW">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="checkmark.circle" catalog="system" id="i0b-Ck-ORs">
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="1bm-x1-0Jt">
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="w0T-xH-je9" id="IuK-a9-UB0"/>
+                        <segue destination="w6O-C4-MPf" kind="show" identifier="scansSegue" id="g4Y-Iv-o19"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wbs-Zb-DIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="-3"/>
+        </scene>
+        <!--Scans-->
+        <scene sceneID="pgv-UL-iVf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Scans" id="w6O-C4-MPf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4Hv-t1-wLh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctA-6i-6Z5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1385" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

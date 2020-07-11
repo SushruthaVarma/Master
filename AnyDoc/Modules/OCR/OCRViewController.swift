@@ -79,7 +79,7 @@ extension OCRViewController: VisionReaderDelegate {
         
         if let image = image {
             // Fire a notification with the image scan details
-            let imageScan = ImageScan(image: image, text: text)
+            let imageScan = Scan(image: image, text: text)
             NotificationCenter.default.post(name: .didAddNewImageScan, object: imageScan)
         }
     }

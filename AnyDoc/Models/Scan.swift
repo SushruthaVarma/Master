@@ -8,10 +8,7 @@
 
 import UIKit
 
-struct ImageScan {
-    
+struct Scan {
     var image: UIImage
     var text: String
-    
-    
 }

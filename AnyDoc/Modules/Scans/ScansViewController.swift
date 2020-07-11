@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  ScansViewController.swift
 //  AnyDoc
 //
 //  Created by Ahmed Fathi on 7/7/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ScansViewController: UIViewController {
     
     // MARK: IBOutlets
     
@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
             collectionView.register(ScanCollectionViewCell.self)
         }
     }
-    @IBOutlet weak var addButton: UIButton!
     
     // MARK: Constants
     
@@ -32,9 +31,10 @@ class HomeViewController: UIViewController {
     
     // MARK: Properties
     
-    var imagesScans = [ImageScan]() {
+    var document: Document? {
         didSet {
-            collectionView.reloadData()
+            navigationItem.title = document?.name
+            collectionView?.reloadData()
         }
     }
     
@@ -43,10 +43,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addButton.layer.cornerRadius = addButton.frame.height / 2
-        addButton.clipsToBounds = true
-        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(didAddNewImageHandler),
@@ -61,8 +57,8 @@ class HomeViewController: UIViewController {
     // MARK: Helpers
     
     @objc private func didAddNewImageHandler(notification: Notification) {
-        guard let imageScan = notification.object as? ImageScan else { return }
-        imagesScans.append(imageScan)
+        guard let scan = notification.object as? Scan else { return }
+        document?.scans.append(scan)
     }
     
     // MARK: Navigation
@@ -72,34 +68,39 @@ class HomeViewController: UIViewController {
             resultVC.text = sender as? String
         }
     }
+    
 }
 
 
 // MARK: - UICollectionViewDelegate
 
-extension HomeViewController: UICollectionViewDelegate {
+extension ScansViewController: UICollectionViewDelegate {
     
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension HomeViewController: UICollectionViewDataSource {
+extension ScansViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        imagesScans.count
+        document?.scans.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ScanCollectionViewCell.reuseId, for: indexPath)
-            as? ScanCollectionViewCell else { fatalError() }
-        cell.scanImageView.image = imagesScans[indexPath.row].image
+            as? ScanCollectionViewCell,
+            let scans = document?.scans
+        else { fatalError() }
+        
+        cell.scanImageView.image = scans[indexPath.row].image
+        
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension ScansViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddings = (Constants.collectionNumberOfColumns + 1) * Constants.collectionInteritemSpacing
         let width = (collectionView.frame.width - paddings) / Constants.collectionNumberOfColumns
@@ -118,6 +119,3 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
-extension Notification.Name {
-    static let didAddNewImageScan = Notification.Name(rawValue: "didAddNewImageScan")
-}
