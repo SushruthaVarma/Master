@@ -41,7 +41,10 @@
                                             <constraint firstAttribute="height" constant="32" id="3dd-Wu-hxb"/>
                                             <constraint firstAttribute="width" secondItem="kNs-yr-piD" secondAttribute="height" multiplier="1:1" id="u3y-B3-R0c"/>
                                         </constraints>
-                                        <state key="normal" image="i-settings"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="i-settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiS-n1-0VK">
                                         <rect key="frame" x="194" y="22" width="26" height="26"/>
