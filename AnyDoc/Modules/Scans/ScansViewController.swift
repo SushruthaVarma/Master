@@ -24,6 +24,7 @@ class ScansViewController: UIViewController {
     // MARK: Constants
     
     enum Constants {
+        static let previewSegue = "previewSegue"
         static let collectionInteritemSpacing: CGFloat = 8
         static let collectionLineSpacing: CGFloat = 8
         static let collectionNumberOfColumns: CGFloat = 3
@@ -64,8 +65,8 @@ class ScansViewController: UIViewController {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultVC = segue.destination as? OCRResultViewController {
-            resultVC.text = sender as? String
+        if let previewVC = segue.destination as? PreviewViewController {
+            previewVC.scan = sender as? Scan
         }
     }
     
@@ -75,7 +76,10 @@ class ScansViewController: UIViewController {
 // MARK: - UICollectionViewDelegate
 
 extension ScansViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let scan = document?.scans[indexPath.row] else { return }
+        performSegue(withIdentifier: Constants.previewSegue, sender: scan)
+    }
 }
 
 // MARK: - UICollectionViewDataSource

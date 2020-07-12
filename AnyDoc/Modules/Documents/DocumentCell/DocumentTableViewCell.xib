@@ -25,27 +25,59 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF6-z0-F4d">
-                        <rect key="frame" x="111" y="34.5" width="42" height="21"/>
+                        <rect key="frame" x="111" y="10" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/07/2020 15:32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-36-Jex">
+                        <rect key="frame" x="111" y="38.5" width="113.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cz-3c-hN4">
+                        <rect key="frame" x="134" y="61" width="17" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i-docs" translatesAutoresizingMaskIntoConstraints="NO" id="ZWv-r1-1V6">
+                        <rect key="frame" x="111" y="63" width="15" height="15"/>
+                        <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZWv-r1-1V6" secondAttribute="height" multiplier="1:1" id="7AE-Er-qJX"/>
+                            <constraint firstAttribute="width" constant="15" id="gX1-DZ-JTa"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="4cz-3c-hN4" firstAttribute="centerY" secondItem="ZWv-r1-1V6" secondAttribute="centerY" id="2Nd-mX-Ai6"/>
+                    <constraint firstItem="4cz-3c-hN4" firstAttribute="bottom" secondItem="sVz-6Q-Gug" secondAttribute="bottom" id="6Ph-e0-8aT"/>
+                    <constraint firstItem="4cz-3c-hN4" firstAttribute="leading" secondItem="ZWv-r1-1V6" secondAttribute="trailing" constant="8" id="Dce-GO-7bS"/>
                     <constraint firstItem="eF6-z0-F4d" firstAttribute="leading" secondItem="sVz-6Q-Gug" secondAttribute="trailing" constant="16" id="GaU-Wu-9SN"/>
                     <constraint firstItem="sVz-6Q-Gug" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="JyZ-n7-DII"/>
-                    <constraint firstItem="eF6-z0-F4d" firstAttribute="centerY" secondItem="sVz-6Q-Gug" secondAttribute="centerY" id="K3k-wx-aNO"/>
                     <constraint firstAttribute="bottom" secondItem="sVz-6Q-Gug" secondAttribute="bottom" constant="10" id="LRp-RN-CRa"/>
+                    <constraint firstItem="ZWv-r1-1V6" firstAttribute="bottom" secondItem="sVz-6Q-Gug" secondAttribute="bottom" constant="-2" id="UML-kh-RAv"/>
+                    <constraint firstItem="OOl-36-Jex" firstAttribute="centerY" secondItem="sVz-6Q-Gug" secondAttribute="centerY" constant="2" id="UQ9-fY-shz"/>
+                    <constraint firstItem="OOl-36-Jex" firstAttribute="leading" secondItem="eF6-z0-F4d" secondAttribute="leading" id="hCD-bA-HG6"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eF6-z0-F4d" secondAttribute="trailing" constant="16" id="lbh-Fp-dPH"/>
                     <constraint firstItem="sVz-6Q-Gug" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mjV-qe-H7g"/>
+                    <constraint firstItem="eF6-z0-F4d" firstAttribute="top" secondItem="sVz-6Q-Gug" secondAttribute="top" id="qom-cS-hrd"/>
+                    <constraint firstItem="ZWv-r1-1V6" firstAttribute="leading" secondItem="OOl-36-Jex" secondAttribute="leading" id="xyN-Qc-06s"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dateLabel" destination="OOl-36-Jex" id="bmo-MX-Pb0"/>
                 <outlet property="nameLabel" destination="eF6-z0-F4d" id="hd2-bX-Yly"/>
+                <outlet property="numberOfScansLabel" destination="4cz-3c-hN4" id="plA-ZB-oFQ"/>
                 <outlet property="previewImageView" destination="sVz-6Q-Gug" id="Vnc-Bh-sN1"/>
             </connections>
-            <point key="canvasLocation" x="158.69565217391306" y="158.37053571428569"/>
+            <point key="canvasLocation" x="158.69565217391306" y="157.70089285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="i-docs" width="32" height="32"/>
+    </resources>
 </document>

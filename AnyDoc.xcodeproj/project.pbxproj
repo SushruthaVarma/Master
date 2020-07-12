@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		762D916D24BB5421005DA60B /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D916C24BB5421005DA60B /* PreviewViewController.swift */; };
+		762D916F24BB542D005DA60B /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 762D916E24BB542D005DA60B /* Preview.storyboard */; };
 		764110C124B8E43D000ADAA6 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764110C024B8E43D000ADAA6 /* Scan.swift */; };
 		7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E124B4EB6500691856 /* AppDelegate.swift */; };
 		7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E324B4EB6500691856 /* SceneDelegate.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		762D916C24BB5421005DA60B /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		762D916E24BB542D005DA60B /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
 		764110C024B8E43D000ADAA6 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
 		7647C5DE24B4EB6500691856 /* ADoc.AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADoc.AI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7647C5E124B4EB6500691856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 				76C3294324B7954200A98FF5 /* OCRResultViewController.storyboard */,
 			);
 			path = OCRResult;
+			sourceTree = "<group>";
+		};
+		762D916B24BB5407005DA60B /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				762D916C24BB5421005DA60B /* PreviewViewController.swift */,
+				762D916E24BB542D005DA60B /* Preview.storyboard */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		764110BF24B8E42D000ADAA6 /* Models */ = {
@@ -189,6 +202,7 @@
 				76FF910024B9097200F39A01 /* TabBar */,
 				7614912124B7945200D9799A /* Documents */,
 				764DAA7824B9CB3E00E153E3 /* Scans */,
+				762D916B24BB5407005DA60B /* Preview */,
 				76BF77BB24B87F9F002D1426 /* Capture */,
 				76BF77C424B89A95002D1426 /* OCR */,
 				7614912224B7945900D9799A /* OCRResult */,
@@ -358,6 +372,7 @@
 				764DAA7524B9C92100E153E3 /* Profile.storyboard in Resources */,
 				76C3294424B7954200A98FF5 /* OCRResultViewController.storyboard in Resources */,
 				76C3294624B85D7600A98FF5 /* Documents.storyboard in Resources */,
+				762D916F24BB542D005DA60B /* Preview.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +398,7 @@
 				7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */,
 				76DFFA6924B8DF36009E3630 /* PreviewView.swift in Sources */,
 				766D471C24B5C86400CC87CA /* ProgressView.swift in Sources */,
+				762D916D24BB5421005DA60B /* PreviewViewController.swift in Sources */,
 				7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */,
 				764DAA7E24B9CC0000E153E3 /* DocumentsViewController.swift in Sources */,
 				764DAA8424B9CD2C00E153E3 /* DocumentTableViewCell.swift in Sources */,
