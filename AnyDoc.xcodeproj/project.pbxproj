@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		762D916D24BB5421005DA60B /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D916C24BB5421005DA60B /* PreviewViewController.swift */; };
 		762D916F24BB542D005DA60B /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 762D916E24BB542D005DA60B /* Preview.storyboard */; };
+		762D917324BB5913005DA60B /* CaptureTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D917124BB5913005DA60B /* CaptureTypeCollectionViewCell.swift */; };
+		762D917424BB5913005DA60B /* CaptureTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762D917224BB5913005DA60B /* CaptureTypeCollectionViewCell.xib */; };
+		762D917624BB59C5005DA60B /* CaptureTypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D917524BB59C5005DA60B /* CaptureTypeLayout.swift */; };
 		764110C124B8E43D000ADAA6 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764110C024B8E43D000ADAA6 /* Scan.swift */; };
 		7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E124B4EB6500691856 /* AppDelegate.swift */; };
 		7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647C5E324B4EB6500691856 /* SceneDelegate.swift */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		762D916C24BB5421005DA60B /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		762D916E24BB542D005DA60B /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
+		762D917124BB5913005DA60B /* CaptureTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		762D917224BB5913005DA60B /* CaptureTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureTypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		762D917524BB59C5005DA60B /* CaptureTypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTypeLayout.swift; sourceTree = "<group>"; };
 		764110C024B8E43D000ADAA6 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
 		7647C5DE24B4EB6500691856 /* ADoc.AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADoc.AI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7647C5E124B4EB6500691856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,15 @@
 				762D916E24BB542D005DA60B /* Preview.storyboard */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		762D917024BB58A4005DA60B /* CaptureTypeCell */ = {
+			isa = PBXGroup;
+			children = (
+				762D917124BB5913005DA60B /* CaptureTypeCollectionViewCell.swift */,
+				762D917224BB5913005DA60B /* CaptureTypeCollectionViewCell.xib */,
+			);
+			path = CaptureTypeCell;
 			sourceTree = "<group>";
 		};
 		764110BF24B8E42D000ADAA6 /* Models */ = {
@@ -245,6 +260,8 @@
 			children = (
 				76BF77BC24B87FB4002D1426 /* CaptureViewController.swift */,
 				76BF77BE24B88064002D1426 /* CaptureViewController.storyboard */,
+				762D917524BB59C5005DA60B /* CaptureTypeLayout.swift */,
+				762D917024BB58A4005DA60B /* CaptureTypeCell */,
 			);
 			path = Capture;
 			sourceTree = "<group>";
@@ -363,6 +380,7 @@
 			files = (
 				7647C5EE24B4EB6A00691856 /* LaunchScreen.storyboard in Resources */,
 				7647C5EB24B4EB6A00691856 /* Assets.xcassets in Resources */,
+				762D917424BB5913005DA60B /* CaptureTypeCollectionViewCell.xib in Resources */,
 				764DAA7C24B9CBC800E153E3 /* Scans.storyboard in Resources */,
 				76BF77BF24B88064002D1426 /* CaptureViewController.storyboard in Resources */,
 				76C3294A24B85DE100A98FF5 /* ScanCollectionViewCell.xib in Resources */,
@@ -386,6 +404,7 @@
 				76C3294924B85DE100A98FF5 /* ScanCollectionViewCell.swift in Sources */,
 				76FF910224B9097D00F39A01 /* TabBarController.swift in Sources */,
 				7647C5E624B4EB6500691856 /* ScansViewController.swift in Sources */,
+				762D917324BB5913005DA60B /* CaptureTypeCollectionViewCell.swift in Sources */,
 				764DAA8724B9CD4600E153E3 /* UITableView+RegisterCell.swift in Sources */,
 				76BF77C624B89AAB002D1426 /* OCRViewController.swift in Sources */,
 				76BF77C124B88E16002D1426 /* CaptureManager.swift in Sources */,
@@ -396,6 +415,7 @@
 				764110C124B8E43D000ADAA6 /* Scan.swift in Sources */,
 				7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */,
 				7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */,
+				762D917624BB59C5005DA60B /* CaptureTypeLayout.swift in Sources */,
 				76DFFA6924B8DF36009E3630 /* PreviewView.swift in Sources */,
 				766D471C24B5C86400CC87CA /* ProgressView.swift in Sources */,
 				762D916D24BB5421005DA60B /* PreviewViewController.swift in Sources */,

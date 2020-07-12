@@ -14,6 +14,10 @@ class PreviewViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     // MARK: Dependancies
     
     var scan: Scan?

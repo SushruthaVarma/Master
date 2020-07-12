@@ -16,6 +16,34 @@ class CaptureViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var gallaryButton: UIButton!
+
+    @IBOutlet weak var greenDotView: UIView!
+    @IBOutlet weak var captureTypeCollectionView: UICollectionView! {
+        didSet {
+            captureTypeCollectionView.delegate = self
+            captureTypeCollectionView.dataSource = self
+            captureTypeCollectionView.isUserInteractionEnabled = false
+            captureTypeCollectionView.register(CaptureTypeCollectionViewCell.self)
+        }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
+    private lazy var leftSwipe: UISwipeGestureRecognizer = {
+        let leftSwipe = UISwipeGestureRecognizer()
+        leftSwipe.direction = .left
+        leftSwipe.addTarget(self, action: #selector(didSwipeLeft))
+        return leftSwipe
+    }()
+    
+    private lazy var rightSwipe: UISwipeGestureRecognizer = {
+        let rightSwipe = UISwipeGestureRecognizer()
+        rightSwipe.direction = .right
+        rightSwipe.addTarget(self, action: #selector(didSwipeRight))
+        return rightSwipe
+    }()
     
     // MARK: Constants
     
@@ -42,11 +70,16 @@ class CaptureViewController: UIViewController {
         super.viewDidLoad()
         
         recordButton.layer.cornerRadius = recordButton.frame.height / 2
-        recordButton.clipsToBounds = true
+        greenDotView.layer.cornerRadius = greenDotView.frame.height / 2
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        selectCaptureType(.single)
+        
         previewView.videoPreviewLayer.session = captureManager.session
         previewView.videoPreviewLayer.videoGravity = .resizeAspectFill
         captureManager.startSession()
@@ -71,10 +104,26 @@ class CaptureViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    lazy var didProcessImage: (Data) -> Void = { [weak self] data in
+    @objc private func didSwipeLeft(_ gesture: UISwipeGestureRecognizer) {
+        selectCaptureType(.batch)
+    }
+    
+    @objc private func didSwipeRight(_ gesture: UISwipeGestureRecognizer) {
+        selectCaptureType(.single)
+    }
+    
+    private lazy var didProcessImage: (Data) -> Void = { [weak self] data in
         guard let image = UIImage(data: data) else { return }
         self?.performSegue(withIdentifier: Constants.OCRSegue, sender: image)
     }
+    
+    // MARK: Helpers
+    
+    private func selectCaptureType(_ type: CaptureType) {
+        let indexPath = IndexPath(item: type.rawValue, section: 0)
+        captureTypeCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
     
     // MARK: Navigation
     
@@ -95,4 +144,42 @@ extension CaptureViewController: ImagePickerDelegate {
         performSegue(withIdentifier: Constants.OCRSegue, sender: image)
     }
     
+}
+
+// MARK: - Capture Type Handlers
+
+// MARK: UICollectionViewDelegate
+
+extension CaptureViewController: UICollectionViewDelegate {
+    
+}
+
+// MARK: UICollectionViewDataSource
+
+extension CaptureViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        CaptureType.allCases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CaptureTypeCollectionViewCell.reuseId, for: indexPath)
+            as? CaptureTypeCollectionViewCell else { fatalError() }
+        cell.type = CaptureType.allCases[indexPath.row]
+        return cell
+    }
+}
+
+// MARK: CaptureType Enum
+
+enum CaptureType: Int, CaseIterable {
+    case single
+    case batch
+    
+    var localizedTitle: String {
+        switch self {
+        case .single:   return "Single"
+        case .batch:    return "Batch"
+        }
+    }
 }
