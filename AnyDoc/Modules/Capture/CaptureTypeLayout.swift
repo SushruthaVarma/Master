@@ -11,7 +11,7 @@ import UIKit
 class CaptureTypeLayout: UICollectionViewLayout {
     
     // MARK: Constants
-    private let interitemSpace: CGFloat = 16
+    private let interitemSpace: CGFloat = 4
     private let scaleFactor: CGFloat = 0.3
     
     // MARK: Book keeping

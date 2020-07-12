@@ -45,6 +45,12 @@ class CaptureViewController: UIViewController {
         return rightSwipe
     }()
     
+    var captureType: CaptureType = .single {
+        didSet {
+            selectCaptureType(captureType)
+        }
+    }
+    
     // MARK: Constants
     
     enum Constants {
@@ -78,7 +84,7 @@ class CaptureViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectCaptureType(.single)
+        captureType = .single
         
         previewView.videoPreviewLayer.session = captureManager.session
         previewView.videoPreviewLayer.videoGravity = .resizeAspectFill
@@ -105,11 +111,15 @@ class CaptureViewController: UIViewController {
     }
     
     @objc private func didSwipeLeft(_ gesture: UISwipeGestureRecognizer) {
-        selectCaptureType(.batch)
+        if let nextType = captureType.next {
+            captureType = nextType
+        }
     }
     
     @objc private func didSwipeRight(_ gesture: UISwipeGestureRecognizer) {
-        selectCaptureType(.single)
+        if let previousType = captureType.previous {
+            captureType = previousType
+        }
     }
     
     private lazy var didProcessImage: (Data) -> Void = { [weak self] data in
@@ -173,13 +183,29 @@ extension CaptureViewController: UICollectionViewDataSource {
 // MARK: CaptureType Enum
 
 enum CaptureType: Int, CaseIterable {
+    case OCR
+    case IDCard
     case single
     case batch
+    case IDPhoto
+    case QRCode
+    
+    var previous: CaptureType? {
+        CaptureType(rawValue: self.rawValue - 1)
+    }
+    
+    var next: CaptureType? {
+        CaptureType(rawValue: self.rawValue + 1)
+    }
     
     var localizedTitle: String {
         switch self {
-        case .single:   return "Single"
-        case .batch:    return "Batch"
+        case .OCR:              return "OCR"
+        case .IDCard:           return "ID Card"
+        case .single:           return "Single"
+        case .batch:            return "Batch"
+        case .IDPhoto:          return "ID Photo"
+        case .QRCode:           return "QR Code"
         }
     }
 }
