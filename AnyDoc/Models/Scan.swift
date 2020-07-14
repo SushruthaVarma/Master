@@ -10,5 +10,5 @@ import UIKit
 
 struct Scan {
     var image: UIImage
-    var text: String
+    var text: String?
 }

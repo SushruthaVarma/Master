@@ -69,18 +69,18 @@ extension OCRViewController: VisionReaderDelegate {
     }
     
     func didCompleteRecognition(text: String) {
-        
         // Dismiss the the progress view
         progressView.dismiss {
-            
-            // After completion: Present the result view controller
+            // After completion present the result view controller
             self.performSegue(withIdentifier: Constants.OCRResultsSegue, sender: text)
         }
         
         if let image = image {
-            // Fire a notification with the image scan details
-            let imageScan = Scan(image: image, text: text)
-            NotificationCenter.default.post(name: .didAddNewImageScan, object: imageScan)
+            // Fire a notification with a document containing the scan
+            let name = Document.generateDocumentName()
+            let scan = Scan(image: image, text: text)
+            let document = Document(name: name, scans: [scan])
+            NotificationCenter.default.post(name: .didAddNewDocument, object: document)
         }
     }
 

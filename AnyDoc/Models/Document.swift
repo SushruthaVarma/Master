@@ -9,6 +9,14 @@
 import Foundation
 
 struct Document {
+    var uuid = UUID().uuidString
     var name: String
     var scans = [Scan]()
+    
+    static func generateDocumentName() -> String {
+        let uuid = UUID().uuidString.prefix(8)
+        let name = "document-\(uuid)"
+        return name
+    }
 }
+

@@ -93,26 +93,40 @@
                                             <action selector="didTapCapture:" destination="qpZ-zV-hMx" eventType="touchUpInside" id="F7f-Pc-R9l"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHF-oO-qAo">
-                                        <rect key="frame" x="332" y="24" width="32" height="32"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-RR-kvu">
+                                        <rect key="frame" x="333.5" y="24" width="60.5" height="32"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i-gallary" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-Fa-rJO">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="XEh-Fa-rJO" secondAttribute="height" multiplier="1:1" id="OuO-KB-7sz"/>
+                                                    <constraint firstAttribute="width" constant="32" id="qg1-yX-1Xk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TWQ-XP-Vz5">
+                                                <rect key="frame" x="48" y="8" width="12.5" height="16.5"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="CK1-zh-5ha"/>
-                                            <constraint firstAttribute="width" secondItem="LHF-oO-qAo" secondAttribute="height" multiplier="1:1" id="uLp-ag-rNu"/>
+                                            <constraint firstItem="XEh-Fa-rJO" firstAttribute="top" secondItem="6CC-RR-kvu" secondAttribute="top" id="Fhx-qE-NO6"/>
+                                            <constraint firstAttribute="bottom" secondItem="XEh-Fa-rJO" secondAttribute="bottom" id="Kvq-Fx-xuw"/>
+                                            <constraint firstAttribute="trailing" secondItem="TWQ-XP-Vz5" secondAttribute="trailing" id="TIB-sV-Xqc"/>
+                                            <constraint firstItem="TWQ-XP-Vz5" firstAttribute="leading" secondItem="XEh-Fa-rJO" secondAttribute="trailing" constant="16" id="c9a-pM-68i"/>
+                                            <constraint firstItem="TWQ-XP-Vz5" firstAttribute="centerY" secondItem="6CC-RR-kvu" secondAttribute="centerY" id="pFv-kI-WME"/>
+                                            <constraint firstItem="XEh-Fa-rJO" firstAttribute="leading" secondItem="6CC-RR-kvu" secondAttribute="leading" id="trQ-Sb-obC"/>
                                         </constraints>
-                                        <state key="normal" image="i-gallary"/>
-                                        <connections>
-                                            <action selector="didTapPhotoGallary:" destination="qpZ-zV-hMx" eventType="touchUpInside" id="Y5y-HT-hHc"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="LHF-oO-qAo" secondAttribute="trailing" constant="50" id="3DY-4O-lh0"/>
                                     <constraint firstItem="eCN-sV-7fa" firstAttribute="centerX" secondItem="SC7-Vq-nEi" secondAttribute="centerX" id="4uY-KC-ljt"/>
                                     <constraint firstItem="oW6-GE-vym" firstAttribute="centerY" secondItem="SC7-Vq-nEi" secondAttribute="centerY" id="CsF-Ok-dzS"/>
                                     <constraint firstItem="oW6-GE-vym" firstAttribute="leading" secondItem="SC7-Vq-nEi" secondAttribute="leading" constant="50" id="PVq-WK-ime"/>
                                     <constraint firstAttribute="height" constant="80" id="Svu-YN-6RA"/>
-                                    <constraint firstItem="LHF-oO-qAo" firstAttribute="centerY" secondItem="SC7-Vq-nEi" secondAttribute="centerY" id="pPL-y6-Stc"/>
+                                    <constraint firstItem="6CC-RR-kvu" firstAttribute="centerY" secondItem="SC7-Vq-nEi" secondAttribute="centerY" id="cU0-XT-4e1"/>
+                                    <constraint firstAttribute="trailing" secondItem="6CC-RR-kvu" secondAttribute="trailing" constant="20" id="hld-r7-W6n"/>
                                     <constraint firstItem="eCN-sV-7fa" firstAttribute="centerY" secondItem="SC7-Vq-nEi" secondAttribute="centerY" id="tzk-rH-uRy"/>
                                 </constraints>
                             </view>
@@ -167,31 +181,43 @@
                         <viewLayoutGuide key="safeArea" id="PDG-aq-a6s"/>
                     </view>
                     <connections>
+                        <outlet property="bottomRightCornerView" destination="6CC-RR-kvu" id="a4I-Z0-pFl"/>
                         <outlet property="cancelButton" destination="oW6-GE-vym" id="gQX-q7-qMp"/>
                         <outlet property="captureTypeCollectionView" destination="nxo-Rh-c3u" id="Kew-KM-YGY"/>
-                        <outlet property="gallaryButton" destination="LHF-oO-qAo" id="5zK-tk-B3Y"/>
                         <outlet property="greenDotView" destination="ljA-Lp-ixg" id="hWq-xC-GUs"/>
+                        <outlet property="lastImagePlaceholder" destination="XEh-Fa-rJO" id="6hb-Ha-qr1"/>
                         <outlet property="previewView" destination="LG7-MR-kWH" id="dFJ-OV-RHn"/>
                         <outlet property="recordButton" destination="eCN-sV-7fa" id="w9Y-z4-fTW"/>
-                        <segue destination="3jg-hu-FuX" kind="presentation" identifier="OCRSegue" id="xJZ-HO-y7J"/>
+                        <outlet property="rightArrow" destination="TWQ-XP-Vz5" id="87v-bS-LNL"/>
+                        <segue destination="3jg-hu-FuX" kind="presentation" identifier="singleOCRSegue" id="xJZ-HO-y7J"/>
+                        <segue destination="Rxk-iz-cn3" kind="presentation" identifier="batchOCRSegue" id="qG0-YR-46Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Va-Zw-Jem" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-97.101449275362327" y="110.49107142857143"/>
         </scene>
-        <!--OCRViewController-->
+        <!--SingleOCR-->
         <scene sceneID="Fo4-t5-1t1">
             <objects>
-                <viewControllerPlaceholder storyboardName="OCRViewController" id="3jg-hu-FuX" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SingleOCR" id="3jg-hu-FuX" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="X6b-3g-xj7"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRV-MO-Jvd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="110"/>
+            <point key="canvasLocation" x="572" y="34"/>
+        </scene>
+        <!--BatchOCR-->
+        <scene sceneID="3VS-vW-GOE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BatchOCR" id="Rxk-iz-cn3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q5z-5T-UGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="166"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="i-flash" width="21.333333969116211" height="21.333333969116211"/>
         <image name="i-gallary" width="170.66667175292969" height="170.66667175292969"/>
         <image name="i-hd" width="21.333333969116211" height="21.333333969116211"/>

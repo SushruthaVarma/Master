@@ -14,10 +14,10 @@ class ScansViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView! {
         didSet {
+            collectionView.register(ScanCollectionViewCell.self)
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-            collectionView.register(ScanCollectionViewCell.self)
         }
     }
     
@@ -38,28 +38,11 @@ class ScansViewController: UIViewController {
             collectionView?.reloadData()
         }
     }
-    
 
     // MARK: View functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(didAddNewImageHandler),
-            name: .didAddNewImageScan,
-            object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    // MARK: Helpers
-    
-    @objc private func didAddNewImageHandler(notification: Notification) {
-        guard let scan = notification.object as? Scan else { return }
-        document?.scans.append(scan)
     }
     
     // MARK: Navigation

@@ -15,8 +15,15 @@ class CaptureViewController: UIViewController {
     @IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var gallaryButton: UIButton!
-
+    
+    @IBOutlet weak var bottomRightCornerView: UIView! {
+        didSet {
+            bottomRightCornerView.addGestureRecognizer(bottomRightCornerTapGesture)
+        }
+    }
+    @IBOutlet weak var lastImagePlaceholder: UIImageView!
+    @IBOutlet weak var rightArrow: UIImageView!
+    
     @IBOutlet weak var greenDotView: UIView!
     @IBOutlet weak var captureTypeCollectionView: UICollectionView! {
         didSet {
@@ -26,6 +33,12 @@ class CaptureViewController: UIViewController {
             captureTypeCollectionView.register(CaptureTypeCollectionViewCell.self)
         }
     }
+    
+    lazy var bottomRightCornerTapGesture: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(didTapBottomRightCorner))
+        return tap
+    }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
@@ -45,16 +58,16 @@ class CaptureViewController: UIViewController {
         return rightSwipe
     }()
     
-    var captureType: CaptureType = .single {
-        didSet {
-            selectCaptureType(captureType)
-        }
-    }
-    
     // MARK: Constants
     
     enum Constants {
-        static let OCRSegue = "OCRSegue"
+        static let singleOCRSegue = "singleOCRSegue"
+        static let batchOCRSegue = "batchOCRSegue"
+    }
+    
+    enum State {
+        case noPhotos
+        case batchPhotos
     }
     
     // MARK: Dependancies
@@ -70,21 +83,45 @@ class CaptureViewController: UIViewController {
         return manager
     }()
     
+    // MARK: Properties
+    
+    var captureType: CaptureType = .single {
+        didSet {
+            selectCaptureType(captureType)
+        }
+    }
+    
+    private var images = [UIImage]() {
+        didSet {
+            state = images.isEmpty ? .noPhotos : .batchPhotos
+        }
+    }
+    
+    private var state: State = .noPhotos {
+        didSet {
+            updateUI(state)
+        }
+    }
+    
     // MARK: View functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        state = .noPhotos
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.captureType = .single            
+        }
         
         recordButton.layer.cornerRadius = recordButton.frame.height / 2
         greenDotView.layer.cornerRadius = greenDotView.frame.height / 2
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        captureType = .single
         
         previewView.videoPreviewLayer.session = captureManager.session
         previewView.videoPreviewLayer.videoGravity = .resizeAspectFill
@@ -102,8 +139,15 @@ class CaptureViewController: UIViewController {
         captureManager.capture()
     }
 
-    @IBAction func didTapPhotoGallary(_ sender: UIButton) {
-        imagePicker.present(from: sender)
+    @objc func didTapBottomRightCorner(_ gesture: UITapGestureRecognizer) {
+        if state == .noPhotos {
+            imagePicker.present(from: bottomRightCornerView)
+        } else if state == .batchPhotos {
+            let name = Document.generateDocumentName()
+            let scans = images.map { Scan(image: $0) }
+            let document = Document(name: name, scans: scans)
+            performSegue(withIdentifier: Constants.batchOCRSegue, sender: document)
+        }
     }
     
     @IBAction func didTapClose(_ sender: UIButton) {
@@ -123,13 +167,17 @@ class CaptureViewController: UIViewController {
     }
     
     private lazy var didProcessImage: (Data) -> Void = { [weak self] data in
-        guard let image = UIImage(data: data) else { return }
-        self?.performSegue(withIdentifier: Constants.OCRSegue, sender: image)
+        guard let strongSelf = self, let image = UIImage(data: data) else { return }
+        if strongSelf.captureType == .single {
+            strongSelf.performSegue(withIdentifier: Constants.singleOCRSegue, sender: image)
+        } else {
+            strongSelf.images.append(image)
+        }
     }
     
     // MARK: Helpers
     
-    private func selectCaptureType(_ type: CaptureType) {
+    private func selectCaptureType(_ type: CaptureType, animated: Bool = true) {
         let indexPath = IndexPath(item: type.rawValue, section: 0)
         captureTypeCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
     }
@@ -140,6 +188,24 @@ class CaptureViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let ocrViewController = segue.destination as? OCRViewController {
             ocrViewController.image = sender as? UIImage
+        } else if let navController = segue.destination as? UINavigationController,
+            let batchOCRViewController = navController.viewControllers.first as? BatchOCRViewController {
+            batchOCRViewController.document = sender as? Document
+        }
+    }
+    
+    // MARK: Update UserInterface
+    
+    func updateUI(_ state: State) {
+        switch state {
+        case .noPhotos:
+            rightArrow.isHidden = true
+            lastImagePlaceholder.image = UIImage(named: "i-gallary")
+            
+        case .batchPhotos:
+            rightArrow.isHidden = false
+            lastImagePlaceholder.image = images.last
+            
         }
     }
 
@@ -151,7 +217,11 @@ extension CaptureViewController: ImagePickerDelegate {
     
     func didSelect(image: UIImage?) {
         guard let image = image else { return }
-        performSegue(withIdentifier: Constants.OCRSegue, sender: image)
+        if captureType == .single {
+            performSegue(withIdentifier: Constants.singleOCRSegue, sender: image)
+        } else {
+            self.images.append(image)
+        }
     }
     
 }

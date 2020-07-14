@@ -48,19 +48,8 @@ class DocumentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
-        
-        documents.append(Document(name: "Document-1"))
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(didAddNewImageHandler),
-            name: .didAddNewImageScan,
-            object: nil)
+        configureNavigationItem()
+        addObservers()
     }
     
     deinit {
@@ -69,11 +58,23 @@ class DocumentsViewController: UIViewController {
     
     // MARK: Helpers
     
-    @objc private func didAddNewImageHandler(notification: Notification) {
-        guard let scan = notification.object as? Scan else { return }
-        guard var firstScan = documents.first else { return }
-        firstScan.scans.append(scan)
-        documents = [firstScan]
+    private func configureNavigationItem() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didAddNewDocumentHandler),
+            name: .didAddNewDocument,
+            object: nil)
+    }
+    
+    @objc private func didAddNewDocumentHandler(notification: Notification) {
+        guard let document = notification.object as? Document else { return }
+        documents.append(document)
     }
     
     // MARK: Navigation
@@ -108,8 +109,4 @@ extension DocumentsViewController: UITableViewDataSource {
         cell.document = documents[indexPath.row]
         return cell
     }
-}
-
-extension Notification.Name {
-    static let didAddNewImageScan = Notification.Name(rawValue: "didAddNewImageScan")
 }

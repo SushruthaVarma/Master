@@ -9,14 +9,15 @@
 import UIKit
 import Vision
 
+// MARK: Vision Reader Delegate
 protocol VisionReaderDelegate: AnyObject {
-    
     func willStartRecognition()
     func didCompleteRecognition(text: String)
     func didUpdateProgress(percent: Double)
     func didFail(error: Error)
-    
 }
+
+// MARK: - Vision Reader
 
 class VisionReader {
     
