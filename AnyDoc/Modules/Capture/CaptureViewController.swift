@@ -109,7 +109,7 @@ class CaptureViewController: UIViewController {
         super.viewDidLoad()
         state = .noPhotos
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.captureType = .single            
+            self.captureType = .single
         }
         
         recordButton.layer.cornerRadius = recordButton.frame.height / 2
