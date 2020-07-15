@@ -77,9 +77,8 @@ extension OCRViewController: VisionReaderDelegate {
         
         if let image = image {
             // Fire a notification with a document containing the scan
-            let name = Document.generateDocumentName()
             let scan = Scan(image: image, text: text)
-            let document = Document(name: name, scans: [scan])
+            let document = Document(scans: [scan])
             NotificationCenter.default.post(name: .didAddNewDocument, object: document)
         }
     }

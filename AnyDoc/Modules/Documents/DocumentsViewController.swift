@@ -43,11 +43,16 @@ class DocumentsViewController: UIViewController {
         }
     }
     
+    // MARK: Dependancies
+    
+    var imageScanner: ImageScanner!
+    
 
     // MARK: View functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageScanner = ImageScanner(presentingViewController: self, delegate: self)
         configureNavigationItem()
         addObservers()
     }
@@ -75,6 +80,12 @@ class DocumentsViewController: UIViewController {
     @objc private func didAddNewDocumentHandler(notification: Notification) {
         guard let document = notification.object as? Document else { return }
         documents.append(document)
+    }
+    
+    // MARK: Actions
+    
+    @IBAction private func didTapAddScan(_ sender: Any) {
+        imageScanner.present()
     }
     
     // MARK: Navigation
@@ -108,5 +119,17 @@ extension DocumentsViewController: UITableViewDataSource {
             as? DocumentTableViewCell else { fatalError() }
         cell.document = documents[indexPath.row]
         return cell
+    }
+}
+
+extension DocumentsViewController: ImageScannerDelegate {
+    func didComplete(_ croppedImage: UIImage) {
+        let scan = Scan(image: croppedImage)
+        let document = Document(scans: [scan])
+        self.documents.append(document)
+    }
+    
+    func didFail(_ error: Error) {
+        print("[Error] failed scanning image:", error)
     }
 }

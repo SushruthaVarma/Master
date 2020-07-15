@@ -143,9 +143,8 @@ class CaptureViewController: UIViewController {
         if state == .noPhotos {
             imagePicker.present(from: bottomRightCornerView)
         } else if state == .batchPhotos {
-            let name = Document.generateDocumentName()
             let scans = images.map { Scan(image: $0) }
-            let document = Document(name: name, scans: scans)
+            let document = Document(scans: scans)
             performSegue(withIdentifier: Constants.batchOCRSegue, sender: document)
         }
     }

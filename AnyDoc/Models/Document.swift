@@ -13,10 +13,14 @@ struct Document {
     var name: String
     var scans = [Scan]()
     
-    static func generateDocumentName() -> String {
-        let uuid = UUID().uuidString.prefix(8)
-        let name = "document-\(uuid)"
-        return name
+    init(name: String, scans: [Scan]) {
+        self.name = name
+        self.scans = scans
+    }
+    
+    init(scans: [Scan]) {
+        self.name = "document-\(uuid.prefix(8))"
+        self.scans = scans
     }
 }
 

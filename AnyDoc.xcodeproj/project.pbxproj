@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		766D471A24B5BC8E00CC87CA /* OCRResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766D471924B5BC8E00CC87CA /* OCRResultViewController.swift */; };
 		766D471C24B5C86400CC87CA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766D471B24B5C86400CC87CA /* ProgressView.swift */; };
 		7688F6FC24B528730092E867 /* VisionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688F6FB24B528730092E867 /* VisionReader.swift */; };
+		76A065CF24BF195100601D08 /* ImageScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A065CE24BF195100601D08 /* ImageScanner.swift */; };
 		76BF77BD24B87FB4002D1426 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BF77BC24B87FB4002D1426 /* CaptureViewController.swift */; };
 		76BF77BF24B88064002D1426 /* CaptureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BF77BE24B88064002D1426 /* CaptureViewController.storyboard */; };
 		76BF77C124B88E16002D1426 /* CaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BF77C024B88E16002D1426 /* CaptureManager.swift */; };
@@ -77,6 +78,7 @@
 		766D471924B5BC8E00CC87CA /* OCRResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultViewController.swift; sourceTree = "<group>"; };
 		766D471B24B5C86400CC87CA /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		7688F6FB24B528730092E867 /* VisionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionReader.swift; sourceTree = "<group>"; };
+		76A065CE24BF195100601D08 /* ImageScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScanner.swift; sourceTree = "<group>"; };
 		76BF77BC24B87FB4002D1426 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		76BF77BE24B88064002D1426 /* CaptureViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CaptureViewController.storyboard; sourceTree = "<group>"; };
 		76BF77C024B88E16002D1426 /* CaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureManager.swift; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 				F5775E6F3BA0AE8D2132088F /* Pods-AnyDoc.debug.xcconfig */,
 				8FDCB154FB97842AB2252014 /* Pods-AnyDoc.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -260,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				7647C5F524B4EDCC00691856 /* ImagePicker.swift */,
+				76A065CE24BF195100601D08 /* ImageScanner.swift */,
 				7688F6FB24B528730092E867 /* VisionReader.swift */,
 				766D471B24B5C86400CC87CA /* ProgressView.swift */,
 				76BF77C024B88E16002D1426 /* CaptureManager.swift */,
@@ -485,6 +487,7 @@
 				76BF77C624B89AAB002D1426 /* OCRViewController.swift in Sources */,
 				76BF77C124B88E16002D1426 /* CaptureManager.swift in Sources */,
 				7688F6FC24B528730092E867 /* VisionReader.swift in Sources */,
+				76A065CF24BF195100601D08 /* ImageScanner.swift in Sources */,
 				76BF77BD24B87FB4002D1426 /* CaptureViewController.swift in Sources */,
 				764DAA7724B9C92C00E153E3 /* ProfileViewController.swift in Sources */,
 				76BF77C324B88E50002D1426 /* ImageProcessor.swift in Sources */,
