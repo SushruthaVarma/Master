@@ -39,7 +39,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="cQm-5T-Ylo">
             <objects>
-                <tabBarController id="mu7-D2-DoS" customClass="TabBarController" customModule="ADoc_AI" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="mu7-D2-DoS" customClass="TabBarController" customModule="ADoc_AI" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sad-3Z-fGi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

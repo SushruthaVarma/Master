@@ -30,6 +30,12 @@
 		764DAA8424B9CD2C00E153E3 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DAA8224B9CD2C00E153E3 /* DocumentTableViewCell.swift */; };
 		764DAA8524B9CD2C00E153E3 /* DocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764DAA8324B9CD2C00E153E3 /* DocumentTableViewCell.xib */; };
 		764DAA8724B9CD4600E153E3 /* UITableView+RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DAA8624B9CD4600E153E3 /* UITableView+RegisterCell.swift */; };
+		76619D5B24C0DBFB00ADCEB4 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76619D5A24C0DBFB00ADCEB4 /* Onboarding.storyboard */; };
+		76619D5D24C0DC0A00ADCEB4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76619D5C24C0DC0A00ADCEB4 /* OnboardingViewController.swift */; };
+		76619D6124C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76619D5F24C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.swift */; };
+		76619D6224C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76619D6024C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.xib */; };
+		76619D6424C0DE7E00ADCEB4 /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76619D6324C0DE7E00ADCEB4 /* OnboardingItem.swift */; };
+		76619D6624C0ECA700ADCEB4 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76619D6524C0ECA700ADCEB4 /* UserDefaults+Extension.swift */; };
 		766D471A24B5BC8E00CC87CA /* OCRResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766D471924B5BC8E00CC87CA /* OCRResultViewController.swift */; };
 		766D471C24B5C86400CC87CA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766D471B24B5C86400CC87CA /* ProgressView.swift */; };
 		7688F6FC24B528730092E867 /* VisionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688F6FB24B528730092E867 /* VisionReader.swift */; };
@@ -75,6 +81,12 @@
 		764DAA8224B9CD2C00E153E3 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
 		764DAA8324B9CD2C00E153E3 /* DocumentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentTableViewCell.xib; sourceTree = "<group>"; };
 		764DAA8624B9CD4600E153E3 /* UITableView+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+RegisterCell.swift"; sourceTree = "<group>"; };
+		76619D5A24C0DBFB00ADCEB4 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		76619D5C24C0DC0A00ADCEB4 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		76619D5F24C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		76619D6024C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		76619D6324C0DE7E00ADCEB4 /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
+		76619D6524C0ECA700ADCEB4 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		766D471924B5BC8E00CC87CA /* OCRResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultViewController.swift; sourceTree = "<group>"; };
 		766D471B24B5C86400CC87CA /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		7688F6FB24B528730092E867 /* VisionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionReader.swift; sourceTree = "<group>"; };
@@ -161,6 +173,7 @@
 			children = (
 				764DAA7F24B9CCE000E153E3 /* Document.swift */,
 				764110C024B8E43D000ADAA6 /* Scan.swift */,
+				76619D6324C0DE7E00ADCEB4 /* OnboardingItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +237,25 @@
 			path = DocumentCell;
 			sourceTree = "<group>";
 		};
+		76619D5924C0D84400ADCEB4 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				76619D5C24C0DC0A00ADCEB4 /* OnboardingViewController.swift */,
+				76619D5A24C0DBFB00ADCEB4 /* Onboarding.storyboard */,
+				76619D5E24C0DD8700ADCEB4 /* OnboardingCell */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		76619D5E24C0DD8700ADCEB4 /* OnboardingCell */ = {
+			isa = PBXGroup;
+			children = (
+				76619D5F24C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.swift */,
+				76619D6024C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.xib */,
+			);
+			path = OnboardingCell;
+			sourceTree = "<group>";
+		};
 		766D471324B5BA3E00CC87CA /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +268,7 @@
 		766D471424B5BA4500CC87CA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				76619D5924C0D84400ADCEB4 /* Onboarding */,
 				76FF910024B9097200F39A01 /* TabBar */,
 				7614912124B7945200D9799A /* Documents */,
 				764DAA7824B9CB3E00E153E3 /* Scans */,
@@ -314,6 +347,7 @@
 			children = (
 				76C3294D24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift */,
 				764DAA8624B9CD4600E153E3 /* UITableView+RegisterCell.swift */,
+				76619D6524C0ECA700ADCEB4 /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +452,8 @@
 				762D917424BB5913005DA60B /* CaptureTypeCollectionViewCell.xib in Resources */,
 				764DAA7C24B9CBC800E153E3 /* Scans.storyboard in Resources */,
 				76BF77BF24B88064002D1426 /* CaptureViewController.storyboard in Resources */,
+				76619D5B24C0DBFB00ADCEB4 /* Onboarding.storyboard in Resources */,
+				76619D6224C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.xib in Resources */,
 				76C3294A24B85DE100A98FF5 /* ScanCollectionViewCell.xib in Resources */,
 				76FF910424B909AB00F39A01 /* TabBar.storyboard in Resources */,
 				76BF77C824B89B5C002D1426 /* SingleOCR.storyboard in Resources */,
@@ -495,8 +531,11 @@
 				7647C5F624B4EDCC00691856 /* ImagePicker.swift in Sources */,
 				764B902C24BDC3B400EDC4B8 /* BatchOCRViewController.swift in Sources */,
 				7647C5E224B4EB6500691856 /* AppDelegate.swift in Sources */,
+				76619D5D24C0DC0A00ADCEB4 /* OnboardingViewController.swift in Sources */,
 				762D917624BB59C5005DA60B /* CaptureTypeLayout.swift in Sources */,
+				76619D6424C0DE7E00ADCEB4 /* OnboardingItem.swift in Sources */,
 				76DFFA6924B8DF36009E3630 /* PreviewView.swift in Sources */,
+				76619D6124C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.swift in Sources */,
 				766D471C24B5C86400CC87CA /* ProgressView.swift in Sources */,
 				762D916D24BB5421005DA60B /* PreviewViewController.swift in Sources */,
 				7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */,
@@ -504,6 +543,7 @@
 				764DAA8424B9CD2C00E153E3 /* DocumentTableViewCell.swift in Sources */,
 				766D471A24B5BC8E00CC87CA /* OCRResultViewController.swift in Sources */,
 				76C3294E24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift in Sources */,
+				76619D6624C0ECA700ADCEB4 /* UserDefaults+Extension.swift in Sources */,
 				764DAA8024B9CCE000E153E3 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
