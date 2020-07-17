@@ -10,7 +10,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="obO-4H-hA7">
             <objects>
-                <viewController id="38i-eR-b30" customClass="OnboardingViewController" customModule="ADoc_AI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="38i-eR-b30" customClass="OnboardingViewController" customModule="AnyDoc_AI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j4N-tA-aEA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,7 @@
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="didTapGo:" destination="38i-eR-b30" eventType="touchUpInside" id="owE-Ve-8FW"/>
                                     <segue destination="ata-4K-n2m" kind="presentation" id="x8n-Bc-jdv"/>
                                 </connections>
                             </button>

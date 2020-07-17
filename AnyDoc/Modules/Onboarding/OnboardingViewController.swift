@@ -36,6 +36,10 @@ class OnboardingViewController: UIViewController {
         goButton.isHidden = true
     }
     
+    @IBAction private func didTapGo(_ sender: UIButton) {
+        UserDefaults.didCompleteOnboarding = true
+    }
+    
 }
 
 extension OnboardingViewController: UICollectionViewDelegate {

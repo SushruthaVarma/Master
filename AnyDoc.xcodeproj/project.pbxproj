@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5752E6947B24C85E712DD90C /* Pods_AnyDoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F045FFC4CBE93D60FD33FB96 /* Pods_AnyDoc.framework */; };
+		7602785D24C25765007DC97A /* launchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7602785C24C25765007DC97A /* launchImage.jpg */; };
+		7602786024C259A4007DC97A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7602785F24C259A4007DC97A /* SplashViewController.swift */; };
+		7602786224C259AA007DC97A /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7602786124C259AA007DC97A /* Splash.storyboard */; };
 		762D916D24BB5421005DA60B /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D916C24BB5421005DA60B /* PreviewViewController.swift */; };
 		762D916F24BB542D005DA60B /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 762D916E24BB542D005DA60B /* Preview.storyboard */; };
 		762D917324BB5913005DA60B /* CaptureTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762D917124BB5913005DA60B /* CaptureTypeCollectionViewCell.swift */; };
@@ -57,13 +60,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7602785C24C25765007DC97A /* launchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchImage.jpg; sourceTree = "<group>"; };
+		7602785F24C259A4007DC97A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7602786124C259AA007DC97A /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		762D916C24BB5421005DA60B /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		762D916E24BB542D005DA60B /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
 		762D917124BB5913005DA60B /* CaptureTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		762D917224BB5913005DA60B /* CaptureTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		762D917524BB59C5005DA60B /* CaptureTypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTypeLayout.swift; sourceTree = "<group>"; };
 		764110C024B8E43D000ADAA6 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
-		7647C5DE24B4EB6500691856 /* ADoc.AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADoc.AI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7647C5DE24B4EB6500691856 /* DocScan.AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocScan.AI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7647C5E124B4EB6500691856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7647C5E324B4EB6500691856 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7647C5E524B4EB6500691856 /* ScansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScansViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +137,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7602785E24C25995007DC97A /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				7602785F24C259A4007DC97A /* SplashViewController.swift */,
+				7602786124C259AA007DC97A /* Splash.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		7614912124B7945200D9799A /* Documents */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +206,7 @@
 		7647C5DF24B4EB6500691856 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7647C5DE24B4EB6500691856 /* ADoc.AI.app */,
+				7647C5DE24B4EB6500691856 /* DocScan.AI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +283,7 @@
 		766D471424B5BA4500CC87CA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7602785E24C25995007DC97A /* Splash */,
 				76619D5924C0D84400ADCEB4 /* Onboarding */,
 				76FF910024B9097200F39A01 /* TabBar */,
 				7614912124B7945200D9799A /* Documents */,
@@ -307,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				7647C5EA24B4EB6A00691856 /* Assets.xcassets */,
+				7602785C24C25765007DC97A /* launchImage.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -406,7 +423,7 @@
 			);
 			name = AnyDoc;
 			productName = AnyDoc;
-			productReference = 7647C5DE24B4EB6500691856 /* ADoc.AI.app */;
+			productReference = 7647C5DE24B4EB6500691856 /* DocScan.AI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -452,6 +469,8 @@
 				762D917424BB5913005DA60B /* CaptureTypeCollectionViewCell.xib in Resources */,
 				764DAA7C24B9CBC800E153E3 /* Scans.storyboard in Resources */,
 				76BF77BF24B88064002D1426 /* CaptureViewController.storyboard in Resources */,
+				7602786224C259AA007DC97A /* Splash.storyboard in Resources */,
+				7602785D24C25765007DC97A /* launchImage.jpg in Resources */,
 				76619D5B24C0DBFB00ADCEB4 /* Onboarding.storyboard in Resources */,
 				76619D6224C0DD9C00ADCEB4 /* OnboardingCollectionViewCell.xib in Resources */,
 				76C3294A24B85DE100A98FF5 /* ScanCollectionViewCell.xib in Resources */,
@@ -541,6 +560,7 @@
 				7647C5E424B4EB6500691856 /* SceneDelegate.swift in Sources */,
 				764DAA7E24B9CC0000E153E3 /* DocumentsViewController.swift in Sources */,
 				764DAA8424B9CD2C00E153E3 /* DocumentTableViewCell.swift in Sources */,
+				7602786024C259A4007DC97A /* SplashViewController.swift in Sources */,
 				766D471A24B5BC8E00CC87CA /* OCRResultViewController.swift in Sources */,
 				76C3294E24B85EF500A98FF5 /* UICollectionView+RegisterCell.swift in Sources */,
 				76619D6624C0ECA700ADCEB4 /* UserDefaults+Extension.swift in Sources */,
@@ -689,7 +709,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fathi.magic;
-				PRODUCT_NAME = ADoc.AI;
+				PRODUCT_NAME = DocScan.AI;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -708,7 +728,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fathi.magic;
-				PRODUCT_NAME = ADoc.AI;
+				PRODUCT_NAME = DocScan.AI;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

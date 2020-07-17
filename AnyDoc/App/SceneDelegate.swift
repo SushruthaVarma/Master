@@ -17,31 +17,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        
-        if UserDefaults.didCompleteOnboarding {
-            launchTabBar(window)
-        } else {
-            UserDefaults.didCompleteOnboarding = true
-            launchOnboarding(window)
-        }
-        
+        launchSplash(window)
         self.window = window
-        
     }
     
-    private func launchOnboarding(_ window: UIWindow) {
-        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+    private func launchSplash(_ window: UIWindow) {
+        let storyboard = UIStoryboard(name: "Splash", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
         window.rootViewController = viewController
         window.makeKeyAndVisible()
     }
     
-    private func launchTabBar(_ window: UIWindow) {
-        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController()
-        window.rootViewController = viewController
-        window.makeKeyAndVisible()
-    }
-
 }
 
