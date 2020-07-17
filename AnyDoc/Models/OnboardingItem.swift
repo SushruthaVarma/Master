@@ -30,6 +30,6 @@ var allOnboardingItems = [
     
     OnboardingItem(
         image: "onboarding-3",
-        title: "Store your persoanl docs like Passport, Aadhar etc securely",
+        title: "Store your personal docs like Passport, Aadhar etc securely",
         body: "Save single or multiple pages as a collection")
 ]
